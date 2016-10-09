@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class DeclinedPayment {
     //initialize report file variable
-    public static String extentReportFile = System.getProperty("user.dir") + "\\Report\\RyanairTestResult.html";
+    public static String extentReportFile = System.getProperty("user.dir") + "\\report\\RyanairTestResult.html";
     //Instantiate ExtentReport class
     public static ExtentReports extent = new ExtentReports(extentReportFile, false);
     //Start Test for report
@@ -40,7 +40,7 @@ public class DeclinedPayment {
             dec.end();
         } catch (Exception ex) {
             extentTest.log(LogStatus.ERROR, "Exception Occured. Please find the exception error below - " + ex);
-            String extentReportImageError = CaptureSnapshot.createScreenshot(driver, System.getProperty("user.dir") + "\\Report\\");
+            String extentReportImageError = CaptureSnapshot.createScreenshot(driver, System.getProperty("user.dir") + "\\report\\");
             extentTest.log(LogStatus.ERROR, "Exception Error Snapshot : " + extentTest.addScreenCapture(extentReportImageError));
             dec.end();
         }
@@ -110,7 +110,7 @@ public class DeclinedPayment {
         //log results
         if (result) {
             extentTest.log(LogStatus.PASS, "Declined payment message is getting displayed.");
-            String extentReportImagePass = CaptureSnapshot.createScreenshot(driver, System.getProperty("user.dir") + "\\Report\\");
+            String extentReportImagePass = CaptureSnapshot.createScreenshot(driver, System.getProperty("user.dir") + "\\report\\");
             extentTest.log(LogStatus.PASS, "Snapshot : " + extentTest.addScreenCapture(extentReportImagePass));
         }
         else {
